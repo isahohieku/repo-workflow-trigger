@@ -2,13 +2,16 @@ name: Triggered Workflow
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-    types:
-      - run-automation
+    inputs:
+      message:
+        description: "Message to display"
+        required: true
 
 jobs:
   triggered-job:
     runs-on: ubuntu-latest
     steps:
       - name: Run Triggered Workflow
-        run: echo "This is the triggered workflow!"
+        run: |
+          echo "This is the triggered workflow!"
+          echo 'This is the message: "${{ inputs.message }}"'
