@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
-          https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq
+          https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ inputs.run_id }}/artifacts | jq
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
