@@ -34,7 +34,7 @@ jobs:
         with:
           name: resume
           path: apps/resumes
-          github-token: ${{ secrets.PAT }}
+          github-token: ${{ secrets.PAT_TOKEN }}
           run-id: ${{ inputs.run_id }}
           repository: isahohieku/repo-workflow-trigger
       - name: View downloaded Artifact in directoury
