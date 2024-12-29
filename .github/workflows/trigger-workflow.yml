@@ -16,7 +16,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: resume
-          path: dist/resume.pdf
+          path: ./dist/resume.pdf
 
       - name: Trigger Another Workflow
         env:
