@@ -23,6 +23,12 @@ jobs:
           echo 'This is the message: "${{ inputs.message }}"'
           echo 'This is the triggering workflow id: "${{ inputs.run_id }}"'
           echo 'This is the artifact id: "${{ inputs.artifact_id }}"'
+      - name: List Artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+          https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts | jq
       - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
