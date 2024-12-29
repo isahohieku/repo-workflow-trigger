@@ -27,7 +27,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: resume
-          path: apps
+          path: apps/resumes
           github-token: ${{ secrets.PAT }}
-          repository: isahohieku/repo-workflow-trigger
           run-id: ${{ inputs.run_id }}
+          repository: isahohieku/repo-workflow-trigger
+      - name: View downloaded Artifact in directoury
+        run: |
+          pwd
+          cd apps/resumes
+          ls

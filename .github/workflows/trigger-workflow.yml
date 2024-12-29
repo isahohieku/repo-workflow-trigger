@@ -31,5 +31,5 @@ jobs:
             https://api.github.com/repos/isahohieku/repo-workflow-trigger/actions/workflows/triggered-workflow.yml/dispatches \
             -d '{"ref":"main", "inputs":{
               "message":"Hello from the source workflow!", 
-              "artifact_id":"$ARTIFACT_ID", 
-              "run_id":"$GITHUB_RUN_ID"}}'
+              "artifact_id": "'"$ARTIFACT_ID"'",
+              "run_id": "'"$GITHUB_RUN_ID"'"}}'
