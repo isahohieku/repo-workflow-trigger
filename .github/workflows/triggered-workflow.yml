@@ -6,6 +6,9 @@ on:
       message:
         description: "Message to display"
         required: true
+      run_id:
+        description: "Run id of triggering workflow"
+        required: true
 
 jobs:
   triggered-job:
@@ -15,3 +18,12 @@ jobs:
         run: |
           echo "This is the triggered workflow!"
           echo 'This is the message: "${{ inputs.message }}"'
+          echo 'This is the triggering workflow id: "${{ inputs.run_id }}"'
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: apps
+          github-token: ${{ secrets.PAT }}
+          repository: isahohieku/repo-trigger
+          run-id: ${{ inputs.run_id }}
