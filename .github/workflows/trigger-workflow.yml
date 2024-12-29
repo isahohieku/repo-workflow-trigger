@@ -9,6 +9,10 @@ jobs:
   trigger-other:
     runs-on: ubuntu-latest
     steps:
+      - name: Show the directory
+        run: |
+          pwd
+          ls
       - name: Archive an artifact
         uses: actions/upload-artifact@v4
         with:
